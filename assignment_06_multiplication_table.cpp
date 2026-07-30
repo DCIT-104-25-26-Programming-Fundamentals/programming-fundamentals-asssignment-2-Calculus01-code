@@ -55,5 +55,55 @@
 // =============================================================================
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
+
+
+void printSingleTable() {
+    int num;
+    cout << "Enter a number for Part A: ";
+    cin >> num;
+
+    if (num <= 0) {
+        cout << "Error: Number must be a positive integer." << endl;
+        return;
+    }
+    
+    cout << "\nMultiplication Table for " << num << ":" << endl;
+    for (int i = 1; i <= 12; ++i) {
+    cout << num << "  x  " << right << setw(2) << i << "  =  " << left << setw(3) << (num * i) << endl;
+}
+
+}
+
+void printMultiplicationTables(){
+    int N;
+    cout << "\nEnter a number for Part B: ";
+    cin >> N;
+    if (N <= 0) {
+        cout << "Error: Number must be a positive integer." << endl;
+        return;
+    }
+    
+    for (int currentTable = 1; currentTable <= N; ++currentTable) {
+        cout << "Multiplication Table for " << currentTable << ":" << endl;
+        for (int i = 1; i <= 12; ++i) {
+    cout << currentTable << "  x  " << right << setw(2) << i << "  =  " << left << setw(3) << (currentTable * i) << endl;
+}
+
+        if (currentTable < N) {
+            cout << "---------------------------" << endl;
+        }
+    }
+}
+
+int main() {
+    cout << "===Running part A ===" << endl;
+    printSingleTable();
+
+    cout << "\n=== Running Part B (Bonus) ===" << endl;
+    printMultiplicationTables();
+
+    return 0;
+}
 
